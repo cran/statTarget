@@ -76,7 +76,7 @@ pospv=matrix(rep(NA, nrow(PV)), ncol=1)
     }
    }
 pdf(V)
-plot(logfc, logpv, col=colpv, pch = 19, xlim=c(-max.fc,max.fc), xlab = "Log2 (Fold Change)", ylab = "Log10 (Pvalue)", main = paste("Volcano Plot ", i, " vs ", j, sep=""), sub = "(Variables in Blue are significant (Pvalue<0.05) and showed Fold Changes >1.2 or <0.8)")
+graphics::plot(logfc, logpv, col=colpv, pch = 19, xlim=c(-max.fc,max.fc), xlab = "Log2 (Fold Change)", ylab = "Log10 (Pvalue)", main = paste("Volcano Plot ", i, " vs ", j, sep=""), sub = "(Variables in Blue are significant (Pvalue<0.05) and showed Fold Changes >1.2 or <0.8)")
 text(logfc, logpv, labels=colnames(sorted.x), cex=0.8, pos=pospv, col=colpv)
 axis(2, at = c(-1,150), pos=c(-0.3219281,0), col="blue", lwd=0.3)
 axis(2, at = c(-1,150), pos=c(0.2630344,0), col="blue", lwd=0.3)
@@ -84,7 +84,7 @@ axis(1, at = c(-150,150), pos=c(1.30103,0), col="blue", lwd=0.3)
 dev.off()
 if (plot.vol) {
 	dev.new()
-plot(logfc, logpv, col=colpv, pch = 19, xlim=c(-max.fc,max.fc), xlab = "Log2 (Fold Change)", ylab = "Log10 (Pvalue)", main = paste("Volcano Plot ", i, " vs ", j, sep=""), sub = "(Variables in Blue are significant (Pvalue<0.05) and showed Fold Changes >1.2 or <0.8)")
+graphics::plot(logfc, logpv, col=colpv, pch = 19, xlim=c(-max.fc,max.fc), xlab = "Log2 (Fold Change)", ylab = "Log10 (Pvalue)", main = paste("Volcano Plot ", i, " vs ", j, sep=""), sub = "(Variables in Blue are significant (Pvalue<0.05) and showed Fold Changes >1.2 or <0.8)")
 text(logfc, logpv, labels=colnames(sorted.x), cex=0.8, pos=pospv, col=colpv)
 axis(2, at = c(-1,150), pos=c(-0.3219281,0), col="blue", lwd=0.3)
 axis(2, at = c(-1,150), pos=c(0.2630344,0), col="blue", lwd=0.3)

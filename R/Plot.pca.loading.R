@@ -21,7 +21,7 @@ function(pcx,pcy,scaling) {
  #dev.new()
  E = paste(getwd(), "/PCA_Data_", scaling, "/LoadingPlot_PC",pcx,"vsPC",pcy,".pdf", sep="")
  pdf(file=E)
- plot(Loading.x[,pcx], Loading.x[,pcy], xlab = pca, ylab = pcb, xlim = c(Min.pc1,Max.pc1), ylim = c(Min.pc2, Max.pc2), main = paste("PCA Loading Plot (", scaling, ")", sep=""), sub = paste("Cumulative Proportion of Variance Explained = ", cum, "%", sep=""))
+ graphics::plot(Loading.x[,pcx], Loading.x[,pcy], xlab = pca, ylab = pcb, xlim = c(Min.pc1,Max.pc1), ylim = c(Min.pc2, Max.pc2), main = paste("PCA Loading Plot (", scaling, ")", sep=""), sub = paste("Cumulative Proportion of Variance Explained = ", cum, "%", sep=""))
  axis(1, at=Mpc1, pos=c(0,0), labels=FALSE, col="grey", lwd=0.7)
  axis(2, at=Mpc2, pos=c(0,0), labels=FALSE, col="grey", lwd=0.7)
  text(Loading.x[,pcx], Loading.x[,pcy], labels=rownames(Loading.x), cex=0.6, pos=1)

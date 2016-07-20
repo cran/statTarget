@@ -34,10 +34,14 @@
 #' @importFrom graphics polygon
 #' @importFrom graphics segments
 #' @importFrom graphics text
+#' @importFrom graphics strwidth
+#' @importFrom graphics strheight
+#' @importFrom graphics box
+#' @importFrom graphics identify
+#' @importFrom graphics lines
 #' @importFrom randomForest randomForest
 #' @importFrom randomForest MDSplot
 #' @importFrom randomForest importance
-#' @importFrom pracma flipdim
 #' @importFrom grDevices rainbow
 #' @importFrom grDevices colorRampPalette
 #' @importFrom grDevices rgb
@@ -46,9 +50,10 @@
 #' @importFrom grDevices dev.off
 #' @importFrom grDevices dev.new
 #' @importFrom grDevices colors
+#' @importFrom grDevices palette
+#' @importFrom grDevices col2rgb
 #' @importFrom gWidgets2 svalue
 #' @importFrom plyr rlply
-#' @importFrom LMGene glog
 #' @importFrom gWidgets2 gwindow
 #' @importFrom gWidgets2 ggroup
 #' @importFrom gWidgets2 gimage
@@ -63,6 +68,9 @@
 #' @import pls
 #' @importFrom graphics abline
 #' @importFrom stats lm
+#' @importFrom stats complete.cases
+#' @importFrom stats cov.wt
+#' @importFrom stats qf
 work.dir <-
 function(dir.name){
   WorkinDir=paste(getwd(),"/", dir.name, "/",sep="")

@@ -50,7 +50,7 @@ plsda.stat <-
     if (ncol(P$scores) == 1) {
       xlab = "Samples"
       ylab = "Score values Component 1"
-      plot(P$scores[,1], col=col, pch=19, xlab=c(xlab), ylab=c(ylab), main = paste("PLS-DA Score Plot (", scaling, ")", sep=""))
+      graphics::plot(P$scores[,1], col=col, pch=19, xlab=c(xlab), ylab=c(ylab), main = paste("PLS-DA Score Plot (", scaling, ")", sep=""))
       lim1 = nrow(P$scores)*2
       axis(1, at=c(-lim1,lim1), col="grey", pos=c(0,0), labels=FALSE, lwd=1)
       text(P$scores[,1], col=col, cex=0.5, pos=1, labels=rownames(P$scores))
@@ -62,7 +62,7 @@ plsda.stat <-
       pwdout1=paste(dirout, "W.cPlot_PLSDA_1Component_", scaling, ".pdf", sep="")
       pdf(pwdout1)
       #dev.new()
-      plot(P$loadings[,1], ylim=Mpc2, main = paste("PLS-DA Loading Plot (", scaling, ")", sep=""), xlab="Variables", ylab="W*c values (Component1)")
+      graphics::plot(P$loadings[,1], ylim=Mpc2, main = paste("PLS-DA Loading Plot (", scaling, ")", sep=""), xlab="Variables", ylab="W*c values (Component1)")
       text(P$loadings[,1], cex=0.7, pos=1, labels=rownames(P$loadings))
       pwdout1=paste(dirout, "W.cPlot_PLSDA_1Component_", scaling, ".pdf", sep="")
       dev.off()
@@ -96,7 +96,7 @@ plsda.stat <-
     write.table(splot,splotstat)
     pwdsplot=paste(dirout, "PLS_DA_SPlot_", scaling, ".pdf", sep="")
     pdf(pwdsplot)
-    plot(splot[,1],splot[,2],  main = paste("PLS-DA SPlot (", scaling, ")", sep=""), xlab="W*c values (Component1)", ylab="W*c values (Component1)")
+    graphics::plot(splot[,1],splot[,2],  main = paste("PLS-DA SPlot (", scaling, ")", sep=""), xlab="W*c values (Component1)", ylab="W*c values (Component1)")
     text(splot, cex=0.7, pos=1, labels=colnames(sorted.x))
     dev.off()
     # significant comp, when Q2S>0 R2_Q2........................................
@@ -137,7 +137,7 @@ plsda.stat <-
     lim_Q = 1.3*(max(abs(r2_sim_P[,2])))
     if (lim_R > lim_Q) {lim = c(-lim_R)} else {lim = c(-lim_Q)}
     if (Q2_all[3,1] > Q2_all[3,2]) {lim_mY = c(Q2_all[3,1])} else {lim_mY = c(Q2_all[3,2])}
-    plot(abs(r2_sim_P[,3]), r2_sim_P[,1], col="red", xlab = "Correlation", ylab = "", xlim = c(-0.05,1.05), ylim = c(lim,1.3*lim_mY), pch=1,  main = paste("Permutation Plot (", scaling, ")", sep=""))
+    graphics::plot(abs(r2_sim_P[,3]), r2_sim_P[,1], col="red", xlab = "Correlation", ylab = "", xlim = c(-0.05,1.05), ylim = c(lim,1.3*lim_mY), pch=1,  main = paste("Permutation Plot (", scaling, ")", sep=""))
     points(abs(r2_sim_P[,3]), r2_sim_P[,2], col="blue4",xlim = c(-0.05,1.05), ylim = lim, pch=0)
     graphics::abline(h=0,col="grey",lwd = 1.2)
     graphics::abline(v=0,col="grey",lwd = 1.2)

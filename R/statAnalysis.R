@@ -129,7 +129,7 @@ statAnalysis <- function (file, Frule = 0.8,imputeM = "KNN", glog = TRUE, test.m
       {
         stop("Do not set the value of nvarRF higher than the number of varibles")
       }
-      explore.data.stat(prefile,scaling,normalize = TRUE)
+      explore.data.stat(logfile,scaling,normalize = TRUE)
       Plot.pca.score.stat(pcax,pcay,scaling)
       Plot.pca.loading(pcax,pcay,scaling)
       outlier.stat(pcax,pcay,scaling)
@@ -137,8 +137,8 @@ statAnalysis <- function (file, Frule = 0.8,imputeM = "KNN", glog = TRUE, test.m
       chose.driver(scaling)
       #message(date(),"\\PCA-PLSDA Start...")
       plsda.stat(scaling,silt)
-      Plot.plsda.stat(1,2,scaling)
-      log = sT.univariate(prefile,normalize = TRUE,nvarRF)
+      Plot.plsda.stat(1,2,scaling)#In par(new = T) : calling par(new=TRUE) with no plot
+      log = sT.univariate(logfile,normalize = TRUE,nvarRF)
       oplsda(scaling)
       #dev.off()
       par("mfrow")

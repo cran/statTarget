@@ -16,7 +16,7 @@ loplot <- function(x,z,i){
   graphics::layout(matrix(1:2,nrow=2))
   
   numY <- 1:dim(x)[2]
-  plot(numY,x[i,],pch=19,col="yellow",ylab = c("Intensity"),
+  graphics::plot(numY,x[i,],pch=19,col="yellow",ylab = c("Intensity"),
        xlab = c("Injection Order"), main = "Raw Peak")
   points(qcid,x[i,qcid],pch=19,col="blue")
   legend("top", c("Sample", "QC"),col=c('yellow', 'blue'), 
@@ -25,7 +25,7 @@ loplot <- function(x,z,i){
   loe <- loess(x[i,qcid]~qcid)
   points(numY,predict(loe,numY),type='l',col=rgb(0,0,0,0.3),lwd=4)
   
-  plot(numY,z[i,],pch=19,col="yellow",ylab = c("Intensity"),
+  graphics::plot(numY,z[i,],pch=19,col="yellow",ylab = c("Intensity"),
        xlab = c("Injection Order"),main = "Corrected Peak")
   points(qcid,z[i,qcid],pch=19,col="blue")
   #abline(h = 1, type='l',col=rgb(0,0,0,0.3),lwd=4)

@@ -115,7 +115,7 @@ RandomF <- function(file,nvarRF) {
         sort.dat <- datindex[order(datindex[,1], na.last=NA, decreasing = T),]
         sort.dat <- t(sort.dat[,-1]) 
         sort.range <- sort.dat[,1:nvarRF]
-        sort.datFilter <- flipdim(sort.range, 2)
+        sort.datFilter <- flipdim_sT(sort.range, 2)
         par(mar=c(3, 10, 3, 10) + 0.1,mgp=c(1.5,0.5,0))
         colfunc <- colorRampPalette(c("white", "green"))
         #colfunc <- colorRampPalette(colors = brewer.pal(9,"reds"))
